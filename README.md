@@ -1,4 +1,4 @@
-# Voice-to-3D Pipeline — Real-Time VR Asset Generation System
+# Voice-to-3D Pipeline   Real-Time VR Asset Generation System
 
 A production-oriented system that converts spoken voice commands inside a Meta Quest VR headset into fully textured 3D GLB assets, injected live into a Unity scene. The pipeline bridges VR input, real-time audio transcription, LLM prompt optimization, and AI-powered 3D model generation through a persistent WebSocket server.
 
@@ -14,10 +14,10 @@ A production-oriented system that converts spoken voice commands inside a Meta Q
 2. [Technology Stack](#2-technology-stack)  
 3. [Repository Structure](#3-repository-structure)  
 4. [Pipeline Diagram](#4-pipeline-diagram)  
-5. [Server Setup — Python Backend](#5-server-setup--python-backend)  
+5. [Server Setup   Python Backend](#5-server-setup--python-backend)  
 6. [Unity Setup](#6-unity-setup)  
 7. [Unity Inspector Configuration](#7-unity-inspector-configuration)  
-8. [In-Headset HUD — Meta Quest View](#8-in-headset-hud--meta-quest-view)  
+8. [In-Headset HUD   Meta Quest View](#8-in-headset-hud--meta-quest-view)  
 9. [Configuration Reference](#9-configuration-reference)  
 10. [API Keys and External Services](#10-api-keys-and-external-services)  
 11. [Network Requirements](#11-network-requirements)  
@@ -31,7 +31,7 @@ A production-oriented system that converts spoken voice commands inside a Meta Q
 The system is divided into two discrete runtime environments that communicate over a persistent WebSocket connection.
 
 ```
-[Meta Quest Headset]                    [Host Machine — Python Server]
+[Meta Quest Headset]                    [Host Machine   Python Server]
         |                                           |
   OVR Y-Button / Spacebar                  WebSocket :8080
   VoiceTranscriptionManager.cs  <-------->  server.py (asyncio)
@@ -142,7 +142,7 @@ voice-to-3d-pipeline/
 
 ---
 
-## 5. Server Setup — Python Backend
+## 5. Server Setup   Python Backend
 
 ### 5.1 Prerequisites
 
@@ -192,7 +192,7 @@ Open `config.py` and populate the following fields:
 SERVER_HOST = "0.0.0.0"       # Bind to all interfaces (required for Quest access)
 SERVER_PORT = 8080             # WebSocket port
 
-SAMPLE_RATE = 16000            # Hz — AssemblyAI recommended rate
+SAMPLE_RATE = 16000            # Hz   AssemblyAI recommended rate
 FILENAME    = "recording.wav"  # Temporary audio file
 
 # API Keys
@@ -240,7 +240,7 @@ Ensure the following inbound ports are open on the host machine:
 
 - Unity 2022.3 LTS or newer
 - Meta XR SDK / OVR Plugin (installed via Package Manager or import from Meta's developer site)
-- TextMeshPro (installed via Package Manager — Window > Package Manager > TextMeshPro)
+- TextMeshPro (installed via Package Manager   Window > Package Manager > TextMeshPro)
 - WebSocketSharp DLL (see below)
 
 ### 6.2 WebSocketSharp Integration
@@ -291,8 +291,8 @@ The following table documents every serialized field on `VoiceTranscriptionManag
 **RecordingHUD Prefab Internal Structure (required hierarchy):**
 
 ```
-RecordingHUD  [GameObject — World Space Canvas]
-|-- Panel  [Image — background]
+RecordingHUD  [GameObject   World Space Canvas]
+|-- Panel  [Image   background]
     |-- MainStatusText   [TextMeshProUGUI]
     |-- DetailStatusText [TextMeshProUGUI]
     |-- CloseButton      [Button > Text]
@@ -338,7 +338,7 @@ private void HandleModelReady(string filename)
 
 ---
 
-## 8. In-Headset HUD — Meta Quest View
+## 8. In-Headset HUD   Meta Quest View
 
 ![Meta Quest HUD View](screenshots/meta_quest_hud.png)
 
